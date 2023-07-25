@@ -1,0 +1,32 @@
+import cv2
+# reading image
+path = r"C:\Users\rezaj\OneDrive\Desktop\Worked on it\YOLO\Horse.jpg"
+img= cv2.imread(path)
+
+# drawing rectangle around the horse
+start_point = (400, 100)
+end_point = (1016, 640)
+color = (0, 0, 255)
+thickness = 2
+image = cv2.rectangle(img, start_point, end_point, color, thickness)
+
+# drawing rectangle around the text
+start_point = (399, 62)
+end_point = (500, 99)
+color = (0, 0, 255)
+thickness = -1
+image = cv2.rectangle(img, start_point, end_point, color, thickness)
+
+# write text on the image 
+txt='Horse'
+font = cv2.FONT_HERSHEY_SIMPLEX
+org = (405, 93)
+fontScale = 1
+color = (255, 255, 255)
+thickness =2
+image = cv2.putText(image, txt, org, font,fontScale, color, thickness, cv2.LINE_AA)
+
+window_name = 'Detect Horse in the picture manually'
+print(img.shape)
+cv2.imshow(window_name,img)
+cv2.waitKey(0)
